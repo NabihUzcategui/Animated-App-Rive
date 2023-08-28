@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+https://github.com/NabihUzcategui/Animated-App-Rive/assets/99839506/b9c4049a-347b-489a-b98a-b32906f12518
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
