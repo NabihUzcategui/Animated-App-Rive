@@ -11,7 +11,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          scaffoldBackgroundColor: const Color(0xffEEF1F8),
           primarySwatch: Colors.blue,
           fontFamily: "Intel",
           inputDecorationTheme: const InputDecorationTheme(

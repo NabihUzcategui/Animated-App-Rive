@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_app/screens/entry_point.dart';
+import 'package:flutter_animated_app/utils/rive_utils.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart';
 
@@ -14,7 +16,7 @@ class SingInForm extends StatefulWidget {
 }
 
 class _SingInFormState extends State<SingInForm> {
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   bool isShowLoading = false;
   bool isShowConffeti = false;
@@ -23,14 +25,6 @@ class _SingInFormState extends State<SingInForm> {
   late SMITrigger error;
   late SMITrigger reset;
   late SMITrigger confetti;
-
-  StateMachineController getRiveController(Artboard artboard) {
-    StateMachineController? controller =
-        StateMachineController.fromArtboard(artboard, 'State Machine 1');
-
-    artboard.addController(controller!);
-    return controller;
-  }
 
   void signIn(BuildContext context) {
     setState(() {
@@ -49,7 +43,14 @@ class _SingInFormState extends State<SingInForm> {
               setState(() {
                 isShowLoading = false;
                 confetti.fire();
-                //TODO: Navigate to next screen
+                Future.delayed(const Duration(seconds: 1), () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const EntryPoint(),
+                    ),
+                  );
+                });
               });
             },
           );
@@ -158,7 +159,7 @@ class _SingInFormState extends State<SingInForm> {
                   'assets/RiveAssets/check.riv',
                   onInit: (artboard) {
                     StateMachineController controller =
-                        getRiveController(artboard);
+                        RiveUtils.getRiveController(artboard);
                     check = controller.findSMI('Check') as SMITrigger;
                     error = controller.findSMI('Error') as SMITrigger;
                     reset = controller.findSMI('Reset') as SMITrigger;
@@ -174,7 +175,7 @@ class _SingInFormState extends State<SingInForm> {
                     'assets/RiveAssets/confetti.riv',
                     onInit: (artboard) {
                       StateMachineController controller =
-                          getRiveController(artboard);
+                          RiveUtils.getRiveController(artboard);
                       confetti =
                           controller.findSMI('Trigger explosion') as SMITrigger;
                     },
