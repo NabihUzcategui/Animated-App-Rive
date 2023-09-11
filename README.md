@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-https://github.com/NabihUzcategui/Animated-App-Rive/assets/99839506/b9c4049a-347b-489a-b98a-b32906f12518
+https://github.com/NabihUzcategui/Animated-App-Rive/assets/99839506/6c640190-651f-41d9-b92f-36c8e0d30459
 
 ## Getting Started
 
